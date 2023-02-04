@@ -12,6 +12,12 @@
             <url>file:${project.basedir}/lib</url>
         </repository>
     </repositories>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <exec.mainClass>septiarakurnia21103010.tugasbesarpbo.TugasBesarPBO</exec.mainClass>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>unknown.binary</groupId>
@@ -23,11 +29,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.31</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.14</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-        <exec.mainClass>septiarakurnia21103010.tugasbesarpbo.TugasBesarPBO</exec.mainClass>
-    </properties>
 </project>

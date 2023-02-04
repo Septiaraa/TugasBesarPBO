@@ -30,10 +30,8 @@ public class Koneksi {
                         "root",
                         "");
                 st = (Statement) connect.createStatement();
-                JOptionPane.showMessageDialog(null,"Terkoneksi");
                 System.out.println("Koneksi berhasil");
             }catch(ClassNotFoundException | SQLException e){
-                JOptionPane.showMessageDialog(null,"Tidak Terkoneksi");
                 System.out.println("Koneksi tidak berhasil.");
             }
         }

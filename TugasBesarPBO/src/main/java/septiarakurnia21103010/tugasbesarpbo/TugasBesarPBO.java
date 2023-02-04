@@ -6,6 +6,9 @@
 package septiarakurnia21103010.tugasbesarpbo;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -14,6 +17,16 @@ import java.sql.SQLException;
 public class TugasBesarPBO {
 
     public static void main(String[] args) throws SQLException {
-        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Login log = new Login();
+                    log.setLocationRelativeTo(null);
+                    log.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TugasBesarPBO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 }

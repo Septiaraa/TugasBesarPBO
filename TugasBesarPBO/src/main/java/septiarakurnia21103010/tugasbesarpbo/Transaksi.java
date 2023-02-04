@@ -4,6 +4,7 @@
  */
 package septiarakurnia21103010.tugasbesarpbo;
 
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -101,7 +106,8 @@ public class Transaksi extends javax.swing.JFrame {
             this.ps = k.getConnection().prepareStatement("select * from menu where ketersediaan='READY'");
             this.rs = this.ps.executeQuery();
             while (rs.next()) {
-                comboIDMenu.addItem(rs.getString("nama_menu") + "(" + rs.getString("harga") + ")");
+                comboIDMenu.addItem(rs.getString("id_menu")+":"
+                +rs.getString("nama_menu")+":"+rs.getString("harga"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -351,6 +357,14 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void cetakNotaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakNotaBtnActionPerformed
         // TODO add your handling code here:
+        try {
+            File note = new File("C:\\Users\\admin\\Documents\\NetBeansProjects\\TugasBesar\\TugasBesarPBO\\src\\main\\java\\Nota\\nota_transaksi.jasper");
+            JasperPrint jp = JasperFillManager.fillReport(note.getPath(), 
+                    null, k.getConnection());
+            JasperViewer.viewReport(jp,false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_cetakNotaBtnActionPerformed
 
     private void textNoTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNoTransaksiActionPerformed
